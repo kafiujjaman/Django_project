@@ -4,4 +4,4 @@ class BlogConfig(AppConfig):
     name = 'blog'
 
     def ready(self):
-        import blog.signals
+        import notes.signals
