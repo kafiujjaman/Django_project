@@ -15,7 +15,7 @@ ALLOWED_HOSTS = ['localhost', '127.0.0.1', '127.0.0.1:8000']
 # Application definition
 
 INSTALLED_APPS = [
-    'blog.apps.BlogConfig',
+    'notes.apps.NotesConfig',
     'users.apps.UsersConfig',
     'django.contrib.admin',
     'django.contrib.auth',
@@ -41,7 +41,7 @@ ROOT_URLCONF = 'django_project.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': ['blog/templates/'],
+        'DIRS': [os.path.join(BASE_DIR, 'notes', 'templates')],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -87,11 +87,17 @@ USE_TZ = True # enabling timezone support
 STATIC_URL = '/static/'
 STATIC_ROOT = os.path.join(BASE_DIR, 'static')
 
+STATICFILES_DIRS = [
+    os.path.join(BASE_DIR, 'notes/static'),
+]
+
 MEDIA_URL = '/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 
-LOGIN_REDIRECT_URL = 'blog-home'
+LOGIN_REDIRECT_URL = 'notes-home'
 LOGIN_URL = 'login'
 
 # Defining a view for the CSRF error
-CSRF_FAILURE_VIEW = 'blog.views.csrf_failure'
+CSRF_FAILURE_VIEW = 'notes.views.csrf_failure'
+
+DEBUG = True

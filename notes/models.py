@@ -20,6 +20,8 @@ class Post(models.Model):
     # defining a URL for a new entry
     def get_absolute_url(self):
         return reverse('post-detail', kwargs={'pk': self.pk})
+    class Meta:
+        db_table = 'blog_post'
 
 # model names should be singular, for example, Post, because they represent a single object
 # fields should be written in lowercase and with underscores

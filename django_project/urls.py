@@ -14,6 +14,6 @@ urlpatterns = [
     path('login/', auth_views.LoginView.as_view(template_name='users/login.html'), name='login'),
     path('logout/', user_views.logout_view, name='logout'), # using a custom logout function
     #path('logout/', auth_views.LogoutView.as_view(template_name='users/login.html'), name='logout'),
-    path('', include('blog.urls')),
+    path('', include('notes.urls')),
     url(r'^media/(?P<path>.*)$', serve,{'document_root': settings.MEDIA_ROOT}), # serving media files in DEBUG=FALSE mode
 ]

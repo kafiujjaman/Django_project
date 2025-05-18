@@ -1,7 +1,7 @@
 from django.apps import AppConfig
 
-class BlogConfig(AppConfig):
-    name = 'blog'
+class NotesConfig(AppConfig):
+    name = 'notes'
 
     def ready(self):
         import notes.signals
